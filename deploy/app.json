@@ -1,0 +1,37 @@
+{
+  "family": "ECS_FAMILY",
+  "containerDefinitions": [
+    {
+      "memoryReservation": 128,
+      "environment": [
+          {
+              "name": "ENVIRONMENT",
+              "value": "prd"
+          },
+          {
+              "name": "JAVA_XMX",
+              "value": "1536"
+          }
+      ],
+      "name": "TASK_NAME",
+      "mountPoints": [],
+      "image": "AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/APP:IMAGE_VERSION",
+      "cpu": 768,
+      "portMappings": [
+          {
+              "protocol": "tcp",
+              "containerPort": 8080,
+              "hostPort": 8080
+          }
+      ],
+      "logConfiguration": {
+          "logDriver": "syslog",
+          "options": {
+              "tag": "APP"
+          }
+      },
+      "essential": true,
+      "volumesFrom": []
+    }
+  ]
+}
